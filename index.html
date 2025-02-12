@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alexis FISKA - Innovateur Tech/IA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --tech-blue: #2A6BFF;
+            --creative-purple: #A855F7;
+            --background: #0F172A;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: var(--background);
+            color: white;
+            line-height: 1.6;
+			overscroll-behavior: contain;
+		scroll-snap-type: y proximity;
+        }
+		
+		/* Scrollbar Next Gen */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(4px);
+  border-radius: 20px;
+  margin: 5px;
+  border: 1px solid var(--creative-purple);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    45deg,
+    var(--tech-blue) 20%,
+    var(--creative-purple) 80%
+  );
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 0 10px rgba(42, 107, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    45deg,
+    #3B82F6 20%,
+    #BF46EB 80%
+  );
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
+}
+
+/* Pour Firefox */
+* {
+  scrollbar-color: var(--creative-purple) var(--background);
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+}
+
+/* Animation au scroll */
+@keyframes scroll-glow {
+  0% { box-shadow: 0 0 10px var(--tech-blue); }
+  50% { box-shadow: 0 0 20px var(--creative-purple); }
+  100% { box-shadow: 0 0 10px var(--tech-blue); }
+}
+
+::-webkit-scrollbar-thumb:active {
+  animation: scroll-glow 1.5s infinite;
+}
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+			 overflow: hidden;
+        }
+
+.diagonal-text {
+    position: absolute;
+    transform: rotate(135deg) translateY(-50%);
+    font-size: 5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.05);
+    white-space: nowrap;
+    z-index: -1;
+    pointer-events: none;
+    animation: slide 20s linear infinite alternate;
+    font-family: 'Arial Black', sans-serif;
+    letter-spacing: 2px;
+}
+
+.a { top: 45%; left: -20%; }
+.b { top: 47%; left: -10%; }
+.c { top: 49%; left: -30%; }
+.d { top: 51%; left: -40%; }
+.e { top: 53%; left: -50%; }
+.f { top: 55%; left: -60%; }
+.g { top: 57%; left: -70%; }
+.h { top: 59%; left: -80%; }
+
+@media (max-width: 1068px) {
+  .a { top: 45%; left: -190%; }
+  .b { top: 47%; left: -220%; }
+  .c { top: 49%; left: -250%; }
+  .d { top: 51%; left: -280%; }
+  .e { top: 53%; left: -310%; }
+  .f { top: 55%; left: 0%; }
+  .g { top: 57%; left: 0%; }
+  .h { top: 59%; left: 0%; }
+}
+
+@keyframes slide {
+    0% { transform: rotate(45deg) translateX(-30%); }
+    100% { transform: rotate(45deg) translateX(-63.5%); }
+}
+        .profile-img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid transparent;
+            background: linear-gradient(45deg, var(--tech-blue), var(--creative-purple)) border-box;
+            margin-right: 2rem;
+            box-shadow: 0 0 20px rgba(42, 107, 255, 0.3);
+        }
+
+        .profile-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .profile-container {
+                flex-direction: column;
+            }
+            
+            .profile-img {
+                margin-right: 0;
+                margin-bottom: 1rem;
+			    width: 150px;
+				height: 150px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+        .gradient-text {
+            background: linear-gradient(45deg, var(--tech-blue), var(--creative-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+		        .gradient-text2 {
+            background: linear-gradient(135deg, var(--creative-purple), var(--tech-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+			transform: scale(0.9);
+        }
+		@media (min-width: 1068px) {
+			.emphasize{
+			
+			}
+		}
+
+        .contact-bar {
+            background: linear-gradient(90deg, var(--creative-purple), var(--tech-blue));
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            backdrop-filter: blur(10px);
+
+        }
+		.section h2{
+			
+		}
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-chip {
+            background: linear-gradient(45deg, var(--tech-blue), var(--creative-purple));
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 0.3rem;
+            font-size: 0.9rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+		.project-card h3 {
+			margin-bottom: 1rem;
+			font-size: 1.2em;
+			text-align: center;
+		}
+
+	.project-card p {
+		line-height: 1.8;
+		font-size: 0.95em;
+		opacity: 0.9;
+	}
+
+	.project-card br {
+		display: block;
+		content: "";
+		margin: 0.3em 0;
+	}
+	
+        .links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: black;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .contact-bar {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+            .cv-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(12px);
+            visibility: hidden;
+            opacity: 0;
+            z-index: 1000;
+            transition: 
+                opacity 0.4s cubic-bezier(0.33, 1, 0.68, 1),
+                visibility 0.4s linear;
+            overflow-y: auto;
+            padding: 2rem 0;
+        }
+
+        .cv-modal.active {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .cv-modal-content {
+            position: relative;
+            max-width: 80%;
+            margin: 20px auto;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            transform: translateY(-50px);
+            opacity: 0;
+            transition: 
+                transform 1.5s cubic-bezier(0.33, 1, 0.68, 1),
+                opacity 1.5s ease;
+        }
+
+        .cv-modal.active .cv-modal-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .cv-image {
+            width: 100%;
+            height: auto;
+            min-width: 300px;
+            border-radius: 20px;
+            cursor: pointer;
+            padding: 20px;
+            object-fit: contain;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(45deg, var(--tech-blue), var(--creative-purple));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 1s ease;
+        }
+
+        .close-modal:hover {
+            transform: rotate(180deg) scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .cv-modal-content {
+                max-width: 98%;
+                max-height: 95vh;
+                margin: 10px;
+            }
+            
+            .cv-image {
+                padding: 10px;
+            }
+            
+            .close-modal {
+                visibility: hidden;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .cv-modal-content {
+                max-width: 1200px;
+            }
+        }
+		
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.tech-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 1.2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+}
+
+.tech-card:hover {
+    transform: translateY(-5px);
+    background: rgba(42, 107, 255, 0.1);
+    box-shadow: 0 8px 24px rgba(42, 107, 255, 0.1);
+}
+
+.tech-card img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 0.8rem;
+    filter: drop-shadow(0 2px 4px rgba(42, 107, 255, 0.3));
+}
+
+.highlight {
+    background: linear-gradient(45deg, #2A6BFF22, #A855F722);
+    border: 1px solid #A855F755;
+}
+
+@media (max-width: 768px) {
+    .tech-grid {
+        grid-template-columns: repeat(3, 1fr);
+		gap: 0.66rem;
+    }
+    
+    .tech-card {
+        padding: 1rem;
+    }
+    
+    .tech-card img {
+        width: 40px;
+        height: 40px;
+    }
+	.fix-mobile-icon{
+		    padding: 0.2rem;
+	}
+}
+
+.fix-icon{
+	transform: scale(1.5);
+}
+	
+.aureate {
+    width: 100%;          
+    height: 150px;      
+    object-fit: contain;     
+    display: block;      
+}
+
+.project-card iframe.aureate {
+    aspect-ratio: 16/9;
+    height: auto
+}
+		</style>
+</head>
+<body>
+    <div class="container">
+<header class="header">
+    <div class="profile-container">
+        <img src="ddddd.png" class="profile-img">
+        <h1 class="gradient-text">Alexis FISKA</h1>
+    </div>
+    <p class="gradient-text emphasize">Solutions Finder & Innovateur Tech/IA</p>
+    <p class="gradient-text2 emphasize" style="color:white;">Depuis 2023 chez IllusionTech©</p>
+    
+    <!-- Ajout du texte en arrière-plan -->
+   <div class="diagonal-text a">- FREELANCING - FREELANCING - FREELANCING -</div>
+   <div class="diagonal-text b">- FREELANCING - FREELANCING - FREELANCING -</div>
+   <div class="diagonal-text c">- FREELANCING - FREELANCING - FREELANCING -</div>
+   <div class="diagonal-text d">- FREELANCING - FREELANCING - FREELANCING -</div>
+   <div class="diagonal-text e">- FREELANCING - FREELANCING - FREELANCING -</div>
+   <div class="diagonal-text f">- FREELANCING - FREELANCING - FREELANCING -</div>
+   <div class="diagonal-text g">- FREELANCING - FREELANCING - FREELANCING -</div>
+   <div class="diagonal-text h">- FREELANCING - FREELANCING - FREELANCING -</div>
+   
+</header>
+
+        <div class="contact-bar">
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Charenton-le-Pont, France</span>
+            </div>
+            <div class="contact-item">
+               
+                <a href="mailto:alexissfiska@gmail.com"> <i class="fas fa-envelope"></i> alexissfiska@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                
+                <a href="tel:+330635247146"><i class="fas fa-phone"></i> +33 06 35 24 71 46</a>
+            </div>
+        </div>
+
+ <div class="section">
+    <h2>🔧 Expertise Technique</h2>
+    <div class="grid">
+        <!-- Nouvelle section QA Engineer -->
+        <div class="project-card highlight">
+            <h3>🛡️ Quality Assurance Engineer</h3>
+            <p>Automatisation des tests (Front/API/Charge)<br>
+            Développement de frameworks QA (Selenium/ Python/ TypeScript ...)<br>  
+            Résolution d'incidents critiques<br>
+            Tests de performance (k6/Playwright)</p>
+        </div>
+
+        <!-- Nouvelle section Full-Stack -->
+        <div class="project-card highlight">
+            <h3>🚀 Développeur Full-Stack</h3>
+            <p>Applications Web/Mobile<br>
+            Architecture microservices<br>
+            Développement API REST<br>
+            UI/UX performantes (React/ASP.NET)</p>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <h2>💡 Innovation Freelance</h2>
+    <div class="grid">
+        <!-- Section modifiée Innovation IA -->
+        <div class="project-card highlight">
+            <h3>🤖 Innovation IA</h3>
+            <p>Robotique conversationnelle (NAO)<br>
+            Clonage vocal IA<br>
+            Prompt Engineering avancé<br>
+            Tours de magie augmentée par IA</p>
+        </div>
+
+        <!-- Section Créativité Générative conservée -->
+        <div class="project-card highlight">
+            <h3>🎨 Créativité Générative</h3>
+            <p>Design génératif (Midjourney/Stable Diffusion)<br>
+            Vidéo IA (HailuoAI/Runaway)<br>
+            Solutions interactives cross-média<br>
+            Prototypage rapide</p>
+        </div>
+    </div>
+</div>
+
+<div class="section fix-mobile-icon">
+    <h2>🛠️ Stack Technique</h2>
+    <div class="tech-grid">
+	        <div class="tech-card highlight">
+			<img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/jira.svg" alt="GitHub Actions">
+			<span>Scrum</span>
+        </div>
+		<div class="tech-card highlight">
+			<img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/testinglibrary.svg" alt="GitHub Actions">
+			<span>TDD</span>
+        </div>
+		<div class="tech-card highlight">
+			<img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/githubactions.svg" alt="GitHub Actions">
+			<span>CI/CD</span>
+        </div>
+		        <div class="tech-card highlight">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/python.svg" alt="Python">
+            <span>Python</span>
+        </div>
+        <!-- Frontend -->
+        <div class="tech-card highlight">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/typescript.svg" alt="TypeScript">
+            <span>TypeScript</span>
+        </div>
+		        <div class="tech-card  highlight">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/nodedotjs.svg" alt="Node.js">
+            <span>Node.js</span>
+        </div>
+        <!-- Testing & Automation -->
+        <div class="tech-card highlight">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/selenium.svg" alt="Selenium">
+            <span>Selenium</span>
+        </div>
+        <div class="tech-card highlight">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/playwright.svg" alt="Playwright">
+            <span>Playwright</span>
+        </div>
+        <!-- Backend & DevOps -->
+
+        <div class="tech-card highlight">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/azuredevops.svg" alt="Azure DevOps">
+            <span>Azure DevOps</span>
+        </div>
+
+
+        <!-- AI & Creative -->
+        <div class="tech-card highlight">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/openai.svg" alt="LLM">
+            <span>LLM Experts</span>
+        </div>
+        <div class="tech-card highlight">
+            <img src="Elevenlabs.webp" alt="|||ElevenLabs"  class="fix-icon">
+            <span>Eleven Labs</span>
+        </div>
+        <div class="tech-card highlight">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/adobepremierepro.svg" alt="Premiere Pro">
+            <span>Premiere Pro</span>
+        </div>
+
+        <!-- Scripting -->
+
+		
+
+    </div>
+</div>
+
+        <div class="section">
+            <h2>🌟 Projets Récents</h2>
+            <div class="grid">
+				 <div class="project-card highlight">
+            <h3>Site Web d'1magicien.com</h3>
+            <a href="https://1magicien.com/" target="_blank">
+                <img class="aureate" src="cover.png" alt="">
+            </a>
+			<br>
+            <p>Responsive Design et Développement d'un site web vitrine pour un magicien professionnel.</p>
+        </div>
+                  <div class="project-card highlight">
+            <h3>Landing page d'Aureate</h3>
+				  
+            <a href="https://taoxadmin.github.io/Aureate/" target="_blank">
+                <img class="aureate" src="Aureate-dsktp.png" alt="Développement de la landing page pour Aureate">
+            </a>
+			<br>
+            <p>Design et Développement d'une landing page à forte conversion pour une marque de bijouterie.</p>
+        </div>
+		 <div class="project-card highlight">
+            <h3>Bande-annonce IA pour "ALIEN"</h3>
+            <a href="https://www.youtube.com/watch?v=tqUaX9FvcpU" target="_blank">
+                <img class="aureate" src="alien.png" alt="">
+            </a>
+			<br>
+            <p>Bande-annonce fictive pour une version entièrement générée par IA de la saga "ALIEN".</p>
+        </div>
+        		
+            </div>
+        </div>
+
+        <div class="links">
+			<a href="#" onclick="openCVModal()" class="cv-link">
+        <i class="fas fa-file-alt"></i> CV-Full
+    </a>
+            <!-- <a href="#"><i class="fas fa-briefcase"></i> Portfolio</a> -->
+            <a href="https://www.linkedin.com/in/alexis-fiska/"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        </div>
+    </div>
+	<div class="cv-modal" id="cvModal" onclick="closeCVModal(event)">
+        <div class="cv-modal-content">
+            <div class="close-modal" onclick="closeCVModal(event)">×</div>
+            <img src="CV-2023.png" class="cv-image" alt="CV Alexis SFISKA">
+        </div>
+    </div>
+	<div class="cv-modal" id="cvModal" onclick="closeCVModal(event)">
+        <div class="cv-modal-content">
+            <div class="close-modal" onclick="closeCVModal(event)">×</div>
+            <img src="CV-2023.png" class="cv-image" alt="CV Alexis SFISKA" onclick="closeCVModal(event)">
+        </div>
+	<script>
+        function openCVModal() {
+            const modal = document.getElementById('cvModal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Reset animation
+            setTimeout(() => {
+                modal.style.transition = 'opacity 1.5s cubic-bezier(0.33, 1, 0.68, 1), visibility 1s linear';
+            }, 10);
+        }
+
+        function closeCVModal(event) {
+            if (event.target.classList.contains('cv-modal') || 
+                event.target.classList.contains('close-modal') ||
+                event.target.classList.contains('cv-image')) {
+                const modal = document.getElementById('cvModal');
+                modal.style.transition = 'opacity 1.5s ease-out, visibility 1.5s linear';
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.getElementById('cvModal').classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Optimisation mobile
+        let lastTap = 0;
+        document.querySelector('.cv-image').addEventListener('touchend', function(e) {
+            const currentTime = new Date().getTime();
+            const tapLength = currentTime - lastTap;
+            if (tapLength < 500 && tapLength > 0) {
+                closeCVModal(e);
+            }
+            lastTap = currentTime;
+        });
+    </script>
+</body>
+</html>
