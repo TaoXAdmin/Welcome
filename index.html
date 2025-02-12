@@ -454,7 +454,17 @@
     width: 100%;          
     height: 150px;      
     object-fit: contain;     
-    display: block;      
+    display: block; 
+	border-radius: 8px; 
+   filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.5)); 
+    transition: transform 0.3s ease, filter 0.3s ease;
+	transform: perspective(1600px) rotateY(-15deg);
+}
+
+
+.aureate:hover {
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.7));
+	 transform: perspective(1000px) rotateY(15deg);
 }
 
 .project-card iframe.aureate {
@@ -649,7 +659,7 @@
         <i class="fas fa-file-alt"></i> CV-Full
     </a>
             <!-- <a href="#"><i class="fas fa-briefcase"></i> Portfolio</a> -->
-            <a href="https://www.linkedin.com/in/alexis-fiska/"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://www.linkedin.com/in/alexis-fiska/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
         </div>
     </div>
 	<div class="cv-modal" id="cvModal" onclick="closeCVModal(event)">
