@@ -457,14 +457,16 @@
     display: block; 
 	border-radius: 8px; 
    filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.5)); 
-    transition: transform 0.3s ease, filter 0.3s ease;
-	transform: perspective(1600px) rotateY(-15deg);
+    <!-- transition: transform 0.3s ease, filter 0.3s ease; -->
+	<!-- transform: perspective(1600px) rotateY(-15deg); -->
+	transition: transform 0.1s linear;
+    transform-style: preserve-3d;
 }
 
 
 .aureate:hover {
     filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.7));
-	 transform: perspective(1000px) rotateY(15deg);
+	 <!-- transform: perspective(1000px) rotateY(15deg); -->
 }
 
 .project-card iframe.aureate {
@@ -656,7 +658,7 @@
 
         <div class="links">
 			<a href="#" onclick="openCVModal()" class="cv-link">
-        <i class="fas fa-file-alt"></i> CV-Full
+        <i class="fas fa-file-alt"></i> CV Pro
     </a>
             <!-- <a href="#"><i class="fas fa-briefcase"></i> Portfolio</a> -->
             <a href="https://www.linkedin.com/in/alexis-fiska/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
@@ -713,6 +715,19 @@
             }
             lastTap = currentTime;
         });
+		
+		document.querySelectorAll(".aureate").forEach(img => {
+    img.addEventListener("mousemove", (e) => {
+        const { width, height, left, top } = img.getBoundingClientRect();
+        const x = (e.clientX - left) / width - 0.5;
+        const y = (e.clientY - top) / height - 0.5;
+        img.style.transform = `perspective(1000px) rotateY(${x * 30}deg) rotateX(${y * -30}deg)`;
+    });
+
+    img.addEventListener("mouseleave", () => {
+        img.style.transform = "perspective(800px) rotateY(0deg) rotateX(0deg)";
+    });
+});
     </script>
 </body>
 </html>
