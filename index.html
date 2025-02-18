@@ -453,7 +453,7 @@
 .aureate {
     width: 100%;          
     height: 150px;      
-    object-fit: contain;     
+    object-fit: cover;     
     display: block; 
 	border-radius: 8px; 
    filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.5)); 
@@ -463,7 +463,49 @@
     transform-style: preserve-3d;
 	<!-- filter: brightness(90%) contrast(95%) saturate(90%); -->
 	filter: sepia(10%) hue-rotate(10deg);
-	mix-blend-mode: darken;
+	opacity: 100%;
+	z-index: 2;
+	
+}
+
+.glow-border {
+  /* On part d'une bordure transparente et d'un background en dégradé */
+  border: 1px solid transparent;
+  border-radius: 8px; /* facultatif, pour arrondir les angles */
+  background: linear-gradient(45deg, var(--creative-purple), var(--tech-blue));
+  background-size: 200% 200%;
+  position: relative; /* nécessaire pour positionner le pseudo-élément */
+  z-index: 1;
+  /* Animation du fond pour faire bouger le dégradé */
+  animation: borderGradientAnimation 5s ease infinite;
+}
+
+/* Pseudo-élément pour créer l'effet glow autour de la bordure */
+.glow-border::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: inherit;
+  background: inherit;
+  filter: blur(8px);
+  z-index: -1; /* placé derrière l'élément principal */
+  opacity: 0.8; /* intensité du glow */
+}
+
+/* Animation qui fait défiler le dégradé, créant une inversion continue des couleurs */
+@keyframes borderGradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 
@@ -476,13 +518,18 @@
     aspect-ratio: 16/9;
     height: auto
 }
-	    	.links a{
+
+	.links a{
 		font-size: 20px;
 	}
 	
 @media (max-width: 1068px) {
 	.links a{
 		font-size: 18px;
+	}
+	.fixMobile{
+    object-fit: contain !important;     
+		
 	}
 }
 		</style>
@@ -642,7 +689,9 @@
 				 <div class="project-card highlight">
             <h3>Site Web d'1magicien.com</h3>
             <a href="https://1magicien.com/" target="_blank">
-                <img class="aureate" src="cover.png" alt="">
+				<div class="glow-border">
+                <img class="aureate fixMobile" src="cover.png" alt="">
+				</div>
             </a>
 			<br>
             <p>Responsive Design et Développement d'un site web vitrine pour un magicien professionnel.</p>
@@ -651,7 +700,9 @@
             <h3>Landing page d'Aureate</h3>
 				  
             <a href="https://taoxadmin.github.io/Aureate/" target="_blank">
+				<div class="glow-border">
                 <img class="aureate" src="Aureate-dsktp.png" alt="Développement de la landing page pour Aureate">
+				</div>
             </a>
 			<br>
             <p>Design et Développement d'une landing page à forte conversion pour une marque de bijouterie.</p>
@@ -659,7 +710,9 @@
 		 <div class="project-card highlight">
             <h3>Bande-annonce fictive par IA</h3>
             <a href="https://www.youtube.com/watch?v=tqUaX9FvcpU" target="_blank">
+				<div class="glow-border">
                 <img class="aureate" src="alien.png" alt="">
+				</div>
             </a>
 			<br>
             <p>Bande-annonce fictive pour une version entièrement générée par IA de la saga "ALIEN".</p>
@@ -668,79 +721,76 @@
             </div>
         </div>
 
-        <div class="links">
-			<a href="#" onclick="openCVModal()" class="cv-link">
-        <i class="fas fa-file-alt"></i> CV Pro
+       <div class="links">
+    <a href="#" onclick="openCVModal()" class="cv-link">
+      <i class="fas fa-file-alt"></i> CV Pro
     </a>
-            <!-- <a href="#"><i class="fas fa-briefcase"></i> Portfolio</a> -->
-            <a href="https://www.linkedin.com/in/alexis-fiska/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-            <a href="https://github.com/TaoXAdmin?tab=repositories" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-        </div>
+    <!-- <a href="#"><i class="fas fa-briefcase"></i> Portfolio</a> -->
+    <a href="https://www.linkedin.com/in/alexis-fiska/" target="_blank">
+      <i class="fab fa-linkedin"></i> LinkedIn
+    </a>
+    <a href="https://github.com/TaoXAdmin?tab=repositories" target="_blank">
+      <i class="fab fa-github"></i> GitHub
+    </a>
+  </div>
+
+  <!-- Modal affichant le CV (un seul modal avec un ID unique) -->
+  <div class="cv-modal" id="cvModal" onclick="closeCVModal(event)">
+    <div class="cv-modal-content">
+      <!-- Bouton de fermeture -->
+      <div class="close-modal" onclick="closeCVModal(event)">×</div>
+      <!-- Image du CV (aucun onclick pour préserver la fonctionnalité de zoom) -->
+      <img src="CV-2023.png" class="cv-image" alt="CV Alexis SFISKA">
     </div>
-	<div class="cv-modal" id="cvModal" onclick="closeCVModal(event)">
-        <div class="cv-modal-content">
-            <div class="close-modal" onclick="closeCVModal(event)">×</div>
-            <img src="CV-2023.png" class="cv-image" alt="CV Alexis SFISKA">
-        </div>
-    </div>
-	<div class="cv-modal" id="cvModal" onclick="closeCVModal(event)">
-        <div class="cv-modal-content">
-            <div class="close-modal" onclick="closeCVModal(event)">×</div>
-            <img src="CV-2023.png" class="cv-image" alt="CV Alexis SFISKA" onclick="closeCVModal(event)">
-        </div>
-	<script>
-        function openCVModal() {
-            const modal = document.getElementById('cvModal');
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            
-            // Reset animation
-            setTimeout(() => {
-                modal.style.transition = 'opacity 1.5s cubic-bezier(0.33, 1, 0.68, 1), visibility 1s linear';
-            }, 10);
-        }
+  </div>
 
-        function closeCVModal(event) {
-            if (event.target.classList.contains('cv-modal') || 
-                event.target.classList.contains('close-modal') ||
-                event.target.classList.contains('cv-image')) {
-                const modal = document.getElementById('cvModal');
-                modal.style.transition = 'opacity 1.5s ease-out, visibility 1.5s linear';
-                modal.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            }
-        }
+  <script>
+    // Fonction d'ouverture du modal
+    function openCVModal() {
+      const modal = document.getElementById('cvModal');
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      
+      // Réinitialisation de l'animation d'ouverture
+      setTimeout(() => {
+        modal.style.transition = 'opacity 1.5s cubic-bezier(0.33, 1, 0.68, 1), visibility 1s linear';
+      }, 10);
+    }
 
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                document.getElementById('cvModal').classList.remove('active');
-                document.body.style.overflow = 'auto';
-            }
-        });
+    // Fonction de fermeture du modal uniquement si le clic est sur l'overlay ou le bouton de fermeture
+    function closeCVModal(event) {
+      if (
+        event.target.classList.contains('cv-modal') ||
+        event.target.classList.contains('close-modal')
+      ) {
+        const modal = document.getElementById('cvModal');
+        modal.style.transition = 'opacity 1.5s ease-out, visibility 1.5s linear';
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    }
 
-        // Optimisation mobile
-        let lastTap = 0;
-        document.querySelector('.cv-image').addEventListener('touchend', function(e) {
-            const currentTime = new Date().getTime();
-            const tapLength = currentTime - lastTap;
-            if (tapLength < 500 && tapLength > 0) {
-                closeCVModal(e);
-            }
-            lastTap = currentTime;
-        });
-		
-		document.querySelectorAll(".aureate").forEach(img => {
-    img.addEventListener("mousemove", (e) => {
+    // Fermeture du modal lors de l'appui sur la touche "Escape"
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.getElementById('cvModal').classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    // Code pour les effets "aureate" sur les images possédant la classe "aureate"
+    document.querySelectorAll(".aureate").forEach(img => {
+      img.addEventListener("mousemove", (e) => {
         const { width, height, left, top } = img.getBoundingClientRect();
         const x = (e.clientX - left) / width - 0.5;
         const y = (e.clientY - top) / height - 0.5;
         img.style.transform = `perspective(1000px) rotateY(${x * 30}deg) rotateX(${y * -30}deg)`;
-    });
+      });
 
-    img.addEventListener("mouseleave", () => {
+      img.addEventListener("mouseleave", () => {
         img.style.transform = "perspective(800px) rotateY(0deg) rotateX(0deg)";
+      });
     });
-});
-    </script>
+  </script>
 </body>
 </html>
