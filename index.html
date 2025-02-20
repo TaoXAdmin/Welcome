@@ -146,25 +146,35 @@
     font-family: 'Arial Black', sans-serif;
     letter-spacing: 2px;
 }
+/* Desktop – vos valeurs initiales */
+.diagonal-text.a { top: 10%; left: -10%; }
+.diagonal-text.b { top: 15%; left: -20%; }
+.diagonal-text.c { top: 20%; left: -30%; }
+.diagonal-text.d { top: 25%; left: -40%; }
+.diagonal-text.e { top: 30%; left: -50%; }
+.diagonal-text.f { top: 35%; left: -60%; }
+.diagonal-text.g { top: 40%; left: -70%; }
+.diagonal-text.h { top: 45%; left: -80%; }
+.diagonal-text.i { top: 50%; left: -90%; }
+.diagonal-text.j { top: 55%; left: -100%; }
+.diagonal-text.k { top: 60%; left: -110%; }
+.diagonal-text.l { top: 65%; left: -120%; }
+.diagonal-text.m { top: 70%; left: -130%; }
+.diagonal-text.n { top: 75%; left: -140%; }
+.diagonal-text.o { top: 80%; left: -150%; }
+.diagonal-text.p { top: 85%; left: -160%; }
 
-.a { top: 45%; left: -20%; }
-.b { top: 47%; left: -10%; }
-.c { top: 49%; left: -30%; }
-.d { top: 51%; left: -40%; }
-.e { top: 53%; left: -50%; }
-.f { top: 55%; left: -60%; }
-.g { top: 57%; left: -70%; }
-.h { top: 59%; left: -80%; }
-
+/* Mobile – décalage vers le bas pour éviter le chevauchement en haut à droite
+   On conserve les écarts horizontaux d'origine */
 @media (max-width: 1068px) {
-  .a { top: 45%; left: -190%; }
-  .b { top: 47%; left: -220%; }
-  .c { top: 49%; left: -250%; }
-  .d { top: 51%; left: -280%; }
-  .e { top: 53%; left: -310%; }
-  .f { top: 55%; left: 0%; }
-  .g { top: 57%; left: 0%; }
-  .h { top: 59%; left: 0%; }
+  .diagonal-text.a { top: 55%; left: -190%; }
+  .diagonal-text.b { top: 57%; left: -220%; }
+  .diagonal-text.c { top: 59%; left: -250%; }
+  .diagonal-text.d { top: 61%; left: -280%; }
+  .diagonal-text.e { top: 63%; left: -310%; }
+  .diagonal-text.f { top: 65%; left: -340%; }
+  .diagonal-text.g { top: 67%; left: -370%; }
+  .diagonal-text.h { top: 69%; left: -400%; }
 }
 
 @keyframes slide {
@@ -199,7 +209,7 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 1100px) {
             .profile-container {
                 flex-direction: column;
             }
@@ -324,7 +334,7 @@
             color: black;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 1100px) {
             .container {
                 padding: 1rem;
             }
@@ -421,7 +431,7 @@
             transform: rotate(180deg) scale(1.1);
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 1100px) {
             .cv-modal-content {
                 max-width: 98%;
                 max-height: 95vh;
@@ -486,7 +496,7 @@
     border: 1px solid #A855F755;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
     .tech-grid {
         grid-template-columns: repeat(3, 1fr);
 		gap: 0.66rem;
@@ -734,7 +744,37 @@
    <div class="diagonal-text f">- FREELANCING - FREELANCING - FREELANCING -</div>
    <div class="diagonal-text g">- FREELANCING - FREELANCING - FREELANCING -</div>
    <div class="diagonal-text h">- FREELANCING - FREELANCING - FREELANCING -</div>
-   
+   <div class="diagonal-text i">- FREELANCING - FREELANCING - FREELANCING -</div>
+   <div class="diagonal-text j">- FREELANCING - FREELANCING - FREELANCING -</div>
+   <div class="diagonal-text k">- FREELANCING - FREELANCING - FREELANCING -</div>
+   <div class="diagonal-text l">- FREELANCING - FREELANCING - FREELANCING -</div>
+   <div class="diagonal-text m">- FREELANCING - FREELANCING - FREELANCING -</div>
+   <div class="diagonal-text n">- FREELANCING - FREELANCING - FREELANCING -</div>
+   <div class="diagonal-text o">- FREELANCING - FREELANCING - FREELANCING -</div>
+   <div class="diagonal-text p">- FREELANCING - FREELANCING - FREELANCING -</div>
+   <script>
+  // Fonction qui bascule l'affichage des éléments ciblés
+  function toggleDiagonalText() {
+    // Sélectionne les éléments de .diagonal-text.i à .diagonal-text.p
+    const elements = document.querySelectorAll(
+      '.diagonal-text.i, .diagonal-text.j, .diagonal-text.k, .diagonal-text.l, .diagonal-text.m, .diagonal-text.n, .diagonal-text.o, .diagonal-text.p'
+    );
+    // Si la largeur de l'écran dépasse 1100px, on les affiche ; sinon, on les masque.
+    if (window.innerWidth > 1100) {
+      elements.forEach(el => {
+        el.style.display = 'block';
+      });
+    } else {
+      elements.forEach(el => {
+        el.style.display = 'none';
+      });
+    }
+  }
+
+  // Exécute la fonction au chargement du DOM et à chaque redimensionnement
+  window.addEventListener('DOMContentLoaded', toggleDiagonalText);
+  window.addEventListener('resize', toggleDiagonalText);
+</script>
 </header>
 
         <div class="contact-bar">
@@ -753,8 +793,8 @@
         </div>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  // Vérifier si on est en mode portrait sur mobile (par exemple, largeur < 768px)
-  if (window.innerWidth < 768 && window.matchMedia("(orientation: portrait)").matches) {
+  // Vérifier si on est en mode portrait sur mobile (par exemple, largeur < 1100px)
+  if (window.innerWidth < 1100 && window.matchMedia("(orientation: portrait)").matches) {
     // Cibler uniquement le lien téléphonique
     const telLink = document.querySelector('a[href^="tel:"]');
     if (telLink) {
