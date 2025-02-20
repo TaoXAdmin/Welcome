@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alexis FISKA - Innovateur Tech/IA</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -78,6 +79,42 @@
   50% { box-shadow: 0 0 20px var(--creative-purple); }
   100% { box-shadow: 0 0 10px var(--tech-blue); }
 }
+
+ ul {
+      list-style: none;
+      padding: 0;
+    }
+    ul li {
+      position: relative;
+      padding-left: 2rem;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+    ul li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.5em;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--creative-purple), var(--tech-blue));
+      animation: pulse 3s infinite;
+    }
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(42, 107, 255, 0.6);
+      }
+      50% {
+        transform: scale(1.3);
+        box-shadow: 0 0 25px rgba(168, 85, 247, 0.7);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(42, 107, 255, 0.6);
+      }
+    }
 
 ::-webkit-scrollbar-thumb:active {
   animation: scroll-glow 1.5s infinite;
@@ -246,6 +283,7 @@
             padding: 1.5rem;
             border-radius: 15px;
             transition: transform 0.3s ease;
+			line-height: 1.8;
         }
 
         .project-card:hover {
@@ -434,6 +472,8 @@
     }
     
     .tech-card {
+		width: 102.45px;
+		height: 120px;
         padding: 1rem;
     }
     
@@ -442,7 +482,7 @@
         height: 40px;
     }
 	.fix-mobile-icon{
-		    padding: 0.2rem;
+		   padding: 2rem 0rem;
 	}
 }
 
@@ -532,6 +572,126 @@
 		
 	}
 }
+
+ @keyframes rotateWrench {
+      0% {
+        transform: rotate(0deg);
+      }
+      50% {
+        transform: rotate(-30deg); /* légère rotation vers la gauche */
+      }
+      100% {
+        transform: rotate(0deg);
+      }
+    }
+
+    /* Application de l'animation à l'emoji */
+    .wrench {
+      display: inline-block; /* nécessaire pour que le transform fonctionne */
+      animation: rotateWrench 2s infinite ease-in-out;
+    }
+	    @keyframes rotateShield {
+      0% {
+        transform: rotateY(0deg);
+      }
+      33% {
+        transform: rotateY(180deg);
+      }
+      66% {
+        transform: rotateY(180deg);
+      }
+      100% {
+        transform: rotateY(360deg);
+      }
+    }
+
+    /* Application de l'animation à l'emoji bouclier */
+    .shield {
+      display: inline-block;      /* Nécessaire pour appliquer les transformations */
+      animation: rotateShield 9s infinite ease-in-out;
+      transform-style: preserve-3d; /* Conserve l'effet 3D pendant la rotation */
+    }
+	
+	    @keyframes bounceRocket {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-5px); /* La fusée se soulève de 20px à mi-parcours */
+      }
+    }
+
+    /* Application de l'animation à l'emoji fusée */
+    .rocket {
+      display: inline-block; /* Pour que la transformation soit bien appliquée */
+      animation: bounceRocket 1s infinite ease-in-out;
+    }
+	   @keyframes toggleBulb {
+      0%,88% {
+        filter: brightness(20%);
+      }
+      88%, 100% {
+        filter: brightness(100%);
+      }
+    }
+
+    /* Application de l'animation à l'emoji ampoule */
+    .bulb {
+      display: inline-block; /* Pour permettre l'application de la transformation */
+      animation: toggleBulb 7s infinite;
+    }
+	    .creative {
+      display: inline-block; /* Assure l'application des transformations */
+      animation: colorShift 4s infinite linear;
+    }
+
+    @keyframes colorShift {
+      0% {
+        filter: hue-rotate(0deg);
+      }
+      50% {
+        filter: hue-rotate(180deg);
+      }
+      100% {
+        filter: hue-rotate(360deg);
+      }
+    }
+	 .robot {
+      display: inline-block;
+      /* La durée totale est de 3,5s : 3s claires, 0,5s glitch */
+      animation: digitalMist 3.5s infinite linear;
+    }
+
+    @keyframes digitalMist {
+      /* Période normale (environ 3 secondes) */
+      0%, 85.7% {
+        filter: blur(0px);
+        opacity: 1;
+        transform: none;
+      }
+      /* Début de l'effet glitch : un effet de flou et décalage rapide */
+      87% {
+        filter: blur(4px);
+        opacity: 0.8;
+        transform: translateX(2px);
+      }
+      90% {
+        filter: blur(6px);
+        opacity: 0.6;
+        transform: translateX(-2px);
+      }
+      92% {
+        filter: blur(2px);
+        opacity: 0.8;
+        transform: translateX(1px);
+      }
+      /* Retour à l'état normal */
+      100% {
+        filter: blur(0px);
+        opacity: 1;
+        transform: none;
+      }
+    }
 		</style>
 </head>
 <body>
@@ -578,30 +738,34 @@ document.addEventListener('DOMContentLoaded', function() {
     const telLink = document.querySelector('a[href^="tel:"]');
     if (telLink) {
       // Insérer le cadratin après la balise </i> et avant le numéro de téléphone
-      telLink.innerHTML = telLink.innerHTML.replace('</i>', '</i>  ');
+      telLink.innerHTML = telLink.innerHTML.replace('46', '46  ');
     }
   }
 });
 </script>
- <div class="section">
-    <h2>🔧 Expertise Technique</h2>
+<div class="section">
+    <h2> 🔧 Expertise Technique</h2>
     <div class="grid">
         <!-- Nouvelle section QA Engineer -->
         <div class="project-card highlight">
-            <h3>🛡️ Quality Assurance Engineer</h3>
-            <p>Automatisation des tests (Front/API/Charge)<br>
-            Développement de frameworks QA (Selenium/ Python/ TypeScript ...)<br>  
-            Résolution d'incidents critiques<br>
-            Tests de performance (k6/Playwright)</p>
+            <h3><span class="shield">🛡️</span> Quality Assurance Engineer</h3>
+            <ul>
+                <li>Automatisation des tests <em>(Front/API/Charge)</em></li>
+                <li>Développement de frameworks QA <em>(Selenium/ Python/ TypeScript ...)</em></li>  
+                <li>Résolution d'incidents critiques</li>
+                <li>Tests de performance <em>(k6/Playwright)</em></li>
+            </ul>
         </div>
 
         <!-- Nouvelle section Full-Stack -->
         <div class="project-card highlight">
-            <h3>🚀 Développeur Full-Stack</h3>
-            <p>Applications Web/Mobile<br>
-            Architecture microservices<br>
-            Développement API REST<br>
-            UI/UX performantes (React/ASP.NET)</p>
+            <h3><span class="rocket">🚀</span> Développeur Full-Stack</h3>
+            <ul>
+                <li>Applications Web/Mobile</li>
+                <li>Architecture microservices<em> (Azure DevOps/ Docker/ Kubernetes …)</em></li>
+                <li>Développement API REST</li>
+                <li>UI/UX performantes <em>(React/ASP.NET)</em></li>
+            </ul>
         </div>
     </div>
 </div>
@@ -611,23 +775,28 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="grid">
         <!-- Section modifiée Innovation IA -->
         <div class="project-card highlight">
-            <h3>🤖 Innovation IA</h3>
-            <p>Robotique conversationnelle (NAO)<br>
-            Clonage vocal IA<br>
-            Prompt Engineering avancé<br>
-            Tours de magie augmentée par IA</p>
+            <h3><span class="robot">🤖</span> Innovation IA</h3>
+            <ul>
+                <li>Robotique conversationnelle <em>(NAO/ ChatGPT)</em></li>
+                <li>Clonage vocal IA</li>
+                <li>Prompt Engineering avancé</li>
+                <li>Tours de magie augmentée par IA</li>
+            </ul>
         </div>
 
         <!-- Section Créativité Générative conservée -->
         <div class="project-card highlight">
-            <h3>🎨 Créativité Générative</h3>
-            <p>Design génératif (Midjourney/Stable Diffusion)<br>
-            Vidéo IA (HailuoAI/Runaway)<br>
-            Solutions interactives cross-média<br>
-            Prototypage rapide</p>
+            <h3><span class="creative">🎨</span> Créativité Générative</h3>
+            <ul>
+                <li>Design génératif <em>(Midjourney/Stable Diffusion)</em></li>
+                <li>Vidéo IA <em>(HailuoAI/Runaway)</em></li>
+                <li>Solutions interactives cross-média</li>
+                <li>Prototypage rapide</li>
+            </ul>
         </div>
     </div>
 </div>
+
 
 <div class="section fix-mobile-icon">
     <h2>🛠️ Stack Technique</h2>
