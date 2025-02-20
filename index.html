@@ -949,7 +949,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	</div>
   </div>
 <script>
- function downloadCV() {
+function downloadCV() {
   const image = document.querySelector('.cv-image');
   const imageSrc = image.getAttribute('src');
 
@@ -959,7 +959,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const blobUrl = URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = blobUrl;
-      link.download = imageSrc.substring(imageSrc.lastIndexOf('/') + 1);
+      // Définition du nom de fichier personnalisé
+      link.download = "CV_ALEXIS-FISKA.png";
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
