@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr"> 
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -295,7 +295,7 @@
 		}
 
         .contact-bar {
-            background: linear-gradient(90deg, var(--creative-purple), var(--tech-blue));
+            background: linear-gradient(90deg, var(--tech-blue), var(--creative-purple));
             padding: 1.5rem;
             border-radius: 15px;
             margin: 2rem 0;
@@ -652,6 +652,9 @@
     object-fit: contain !important;     
 		
 	}
+	.fix-tt{
+		margin-left: 2rem;
+	}
 }
 
  @keyframes rotateWrench {
@@ -773,6 +776,7 @@
         transform: none;
       }
     }
+
 		</style>
 </head>
 <body>
@@ -910,7 +914,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 <div class="section fix-mobile-icon">
-    <h2>🛠️ Stack Technique</h2>
+    <h2 class="fix-tt">🛠️ Stack Technique</h2>
+	
     <div class="tech-grid">
 	        <div class="tech-card highlight">
 			<img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/jira.svg" alt="GitHub Actions">
