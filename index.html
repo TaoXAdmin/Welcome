@@ -480,7 +480,9 @@
             font-size: 1.5rem;
             transition: all 1s ease;
 		}
-
+		.download-button:hover{
+			transform:  scale(1.1) translateY(-10%);
+		}
         .close-modal:hover {
             transform: rotate(180deg) scale(1.1);
         }
@@ -550,6 +552,10 @@
     border: 1px solid #A855F755;
 }
 
+	.boost{
+		transform: scale(1.25);
+	}
+
 @media (max-width: 1100px) {
     .tech-grid {
         grid-template-columns: repeat(3, 1fr);
@@ -569,9 +575,7 @@
 	.fix-mobile-icon{
 		   padding: 2rem 0rem;
 	}
-	.boost{
-		transform: scale(1.25);
-	}
+
 }
 
 .fix-icon{
@@ -661,6 +665,9 @@
 	}
 	.fix-tt{
 		margin-left: 2rem;
+	}
+	.fix-title{
+		
 	}
 }
 
@@ -783,7 +790,9 @@
         transform: none;
       }
     }
-
+	.emphasize{
+		font-weight: 700;
+	}
 		</style>
 </head>
 <body>
@@ -867,19 +876,40 @@ document.addEventListener('DOMContentLoaded', function() {
     <h2> 🔧 Expertise Technique</h2>
     <div class="grid">
         <!-- Nouvelle section QA Engineer -->
+		
         <div class="project-card highlight">
-            <h3><span class="shield">🛡️</span> Quality Assurance Engineer</h3>
+            <h3 id="qa-engineer">🛡️ Quality Assurance Engineer</h3>
             <ul>
-                <li>Automatisation des tests <em>(Front/API/Charge)</em></li>
+                <li>Automatisation des tests <em>(Front/API/Charge/E2E)</em></li>
                 <li>Développement de frameworks QA <em>(Selenium/ Python/ TypeScript ...)</em></li>  
                 <li>Résolution d'incidents critiques</li>
                 <li>Tests de performance <em>(k6/Playwright)</em></li>
             </ul>
         </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Sélectionne l'élément h3 ciblé grâce à son identifiant
+      const qaH3 = document.getElementById('qa-engineer');
+      // Stocke le texte original
+      const texteInitial = qaH3.textContent;
 
+      function updateText() {
+        if (window.innerWidth < 1100) {
+          qaH3.textContent = "🛡️ QA Engineer";
+        } else {
+          qaH3.textContent = texteInitial;
+        }
+      }
+
+      // Mettre à jour dès le chargement
+      updateText();
+      // Mettre à jour lors du redimensionnement de la fenêtre
+      window.addEventListener('resize', updateText);
+    });
+  </script>
         <!-- Nouvelle section Full-Stack -->
         <div class="project-card highlight">
-            <h3><span class="rocket">🚀</span> Développeur Full-Stack</h3>
+            <h3>🚀 Développeur Full-Stack</h3>
             <ul>
                 <li>Applications Web/Mobile</li>
                 <li>Architecture microservices<em> (Azure DevOps/ Docker/ Kubernetes …)</em></li>
@@ -895,7 +925,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="grid">
         <!-- Section modifiée Innovation IA -->
         <div class="project-card highlight">
-            <h3><span class="robot">🤖</span> Innovation IA</h3>
+            <h3>🤖 Innovation IA</h3>
             <ul>
                 <li>Robotique conversationnelle <em>(NAO/ ChatGPT)</em></li>
                 <li>Clonage vocal IA</li>
@@ -906,7 +936,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         <!-- Section Créativité Générative conservée -->
         <div class="project-card highlight">
-            <h3><span class="creative">🎨</span> Créativité Générative</h3>
+            <h3>🎨 Créativité Générative</h3>
             <ul>
                 <li>Design génératif <em>(Midjourney/Stable Diffusion)</em></li>
                 <li>Vidéo IA <em>(HailuoAI/Runaway)</em></li>
@@ -999,7 +1029,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <p>Responsive Design et Développement d'un site web vitrine pour un magicien professionnel.</p>
         </div>
                   <div class="project-card highlight">
-            <h3>Landing page d'Aureate</h3>
+            <h3>Landing Page d'Aureate</h3>
 				  
             <a href="https://taoxadmin.github.io/Aureate/" target="_blank">
 				<div class="glow-border">
@@ -1010,7 +1040,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <p>Design et Développement d'une landing page à forte conversion pour une marque de bijouterie.</p>
         </div>
 		 <div class="project-card highlight">
-            <h3>Bande-annonce fictive par IA</h3>
+            <h3>Bande-Annonce fictive par IA</h3>
             <a href="https://www.youtube.com/watch?v=tqUaX9FvcpU" target="_blank">
 				<div class="glow-border">
                 <img class="aureate" src="alien.png" alt="">
