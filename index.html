@@ -400,6 +400,22 @@
             font-size: 1.5rem;
             transition: all 1s ease;
         }
+		
+		.download-button{
+			position: absolute;
+            top: 0;           
+			left: 50%;
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(45deg, var(--tech-blue), var(--creative-purple));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 1s ease;
+		}
 
         .close-modal:hover {
             transform: rotate(180deg) scale(1.1);
@@ -419,6 +435,11 @@
             .close-modal {
                 visibility: hidden;
             }
+			.download-button{
+				transform: scale(0.5);
+				top: -15px;
+				left: 45%;
+			}
         }
 
         @media (min-width: 1200px) {
@@ -922,9 +943,31 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="close-modal" onclick="closeCVModal(event)">×</div>
       <!-- Image du CV (aucun onclick pour préserver la fonctionnalité de zoom) -->
       <img src="CV-2023.png" class="cv-image" alt="CV Alexis SFISKA">
-    </div>
+	   <div class="download-button" onclick="downloadCV()">
+		<i class="fas fa-download"></i>
+		</div>
+	</div>
   </div>
+<script>
+ function downloadCV() {
+  const image = document.querySelector('.cv-image');
+  const imageSrc = image.getAttribute('src');
 
+  fetch(imageSrc)
+    .then(response => response.blob())
+    .then(blob => {
+      const blobUrl = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = blobUrl;
+      link.download = imageSrc.substring(imageSrc.lastIndexOf('/') + 1);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(blobUrl);
+    })
+    .catch(err => console.error("Erreur lors du téléchargement de l'image :", err));
+}
+</script>
   <script>
     // Fonction d'ouverture du modal
     function openCVModal() {
